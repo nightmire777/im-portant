@@ -1,3 +1,7 @@
+
+> [!WARNING]
+> notes may contain issues or unfinished sections, pls read with caution
+
 # THEORY BULLLSHIT 
 
 ## Wat is a Data structure
