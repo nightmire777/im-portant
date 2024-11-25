@@ -154,17 +154,112 @@ a tree is only a set of nodes connected by edges to form a hierarchical relation
 >everynode either have 0 or 2 kids 
 >full tree with heigh H have (2^h)-1 nodes , includes root and leaves
 
-# Graphs
-Its a data structure that has a set of nodes that relate to one another
+# Graph
 
-The nodes are linked using edges, these edges describe the relationships among the vertices
+What :  A graph is a collection of nodes (or vertices) connected by edges. 
+
+```
+Vertices (Nodes): The individual elements of the graph.
+Edges: The connections between the vertices.
+Directed Graph: A graph where edges have a direction (e.g., A → B).
+Undirected Graph: A graph where edges do not have a direction (e.g., A -- B).
+Weighted Graph: A graph where edges have weights (e.g., distances or costs)
+Degree of vertex: The degree of a vertex is the number of edges connected to it. In directed graphs, we differentiate between in-degree (incoming edges) and out-degree (outgoing edges).
+Connected Graph:  A graph is connected if there is a path between every pair of vertices. In directed graphs, it is strongly connected if there is a directed path in both directions between every pair of vertices.
+```
+
+## Directed Graph VS Undirected Graph
+In a directed graph, edges have a direction, indicating a one-way relationship. In an undirected graph, edges do not have a direction, indicating a two-way relationship.
+
+Example 
+A directed graph could represent a Twitter following (User A follows User B), while an undirected graph could represent a Facebook friendship (User A is friends with User B).
+
+### Directed
+Applications: Computer networks, Project management, family tree, dependencies 
+
+- +can model complex relationships, good for representing dependencies, Can be used for analysis
+- -May be more complex, require more processing power
+
+### Undirected
+Applications: Social Networks, Traffic flow optimization, Website analysis(linkage between websites)
+
+- +simple and easy, less computing power, flexible
+- -no direction, limited info
+
+## traversals 
+Graph traversal refers to the process of visiting all the vertices in a graph.
+
+Depth first traversal : Explores as far as possible along each branch before backtracking. It uses a stack (either explicitly or via recursion).
+Breadth first traversal : Explores all neighbors at the present depth prior to moving on to nodes at the next depth level. It uses a queue.
+Comparison: DFS can be more memory efficient for deep graphs, while BFS is better for finding the shortest path in unweighted graphs.
+
+## Dijkstra's algorithm 
+finds the shortest path from a source vertex to all other vertices in a weighted graph.
+
+Steps:
+Initialize distances from the source to all vertices as infinite, except for the source itself (distance = 0).
+Mark all vertices as unvisited. Set the source vertex as the current vertex.
+For the current vertex, consider all its unvisited neighbors and calculate their tentative distances. Update the distance if the new distance is smaller.
+Once all neighbors are considered, mark the current vertex as visited. A visited vertex will not be checked again.
+Select the unvisited vertex with the smallest tentative distance as the new current vertex and repeat until all vertices are visited.
+Example: Given a graph with vertices A, B, C, and D, and edges with weights, the algorithm will iteratively update the shortest paths from A to all other vertices.
+
+## Minimum spanning tree
+A minimum spanning tree (MST) is a subset of edges in a weighted graph that connects all vertices with the minimum total edge weight and without any cycles. A cycle is when the graph have loops. 
+
+Prim's Algorithm: Starts with a single vertex and grows the MST by adding the smallest edge that connects a vertex in the MST to a vertex outside the MST.
+Kruskal's Algorithm: Sorts all edges in ascending order by weight and adds edges to the MST, ensuring no cycles are formed, until all vertices are connected.
+
+# Trees and binary search 
+what :A tree is a set of nodes connected by edges to indicate a hierarchical relationship among the nodes
+
+```
+Nodes are arranged in levels 
+Top level is a single node called the root
+Nodes at a given level are children of nodes of the previous level
+A node that has children is called their parent (all nodes have exactly one parent, except root)
+Nodes with the same parent are siblings
+Nodes that have no children are leaves
+
+A subtree of a node is a tree rooted at a child of that node
+The nodes in a subtree of node A are the children of node A
+A node is reached from the root by a path
+
+```
+
+## traversal 
+Pre-order Traversal: Visit the root node first, then recursively visit the left subtree, followed by the right subtree. (Order: Root, Left, Right)
+In-order Traversal: Recursively visit the left subtree first, then the root node, and finally the right subtree. This traversal yields nodes in non-decreasing order for binary search trees. (Order: Left, Root, Right)
+Post-order Traversal: Recursively visit the left subtree, then the right subtree, and finally the root node. This is useful for deleting trees or evaluating expressions. (Order: Left, Right, Root)
+Comparison: Pre-order is used for copying trees, in-order for sorting, and post-order for deleting or evaluating expressions.
 
 
-**uses** 
-- electrical circuits
-- network communications 
-- finding shortest route
-- searching for dependency
+## binary search tree
+Node Ordering: For any given node, all values in the left subtree are less than the node's value, and all values in the right subtree are greater.
+Unique Values: Typically, BSTs do not allow duplicate values.
+
+### inserting 
+```
+Start at the root node.
+Compare the value of the new node with the current node's value.
+If the new value is less, move to the left child; if greater, move to the right child.
+Repeat this process until you find an empty spot (null) where the new node can be inserted.
+```
+
+## binary trees
+what:  A binary tree is a tree data structure in which each node has at most two children, referred to as the left child and the right child.
+
+
+```
+Maximum Nodes: A binary tree with height (h) can have a maximum of (2^{h+1} - 1) nodes.
+Height: The height of a binary tree is the number of edges on the longest path from the root to a leaf.
+
+```
+
+Types of Binary Trees:
+Full Binary Tree: Every node has either 0 or 2 children.
+Complete Binary Tree: All levels are fully filled except possibly for the last level, which is filled from left to right.
+Perfect Binary Tree: All internal nodes have two children, and all leaf nodes are at the same level.
 
 
 
