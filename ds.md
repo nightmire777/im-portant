@@ -45,6 +45,128 @@ worst case > max number of steps ... you get it
 
 average case > 
 
+# Linked List
+- Collection of items in list data structure, can be stored and organized in memory
+
+- List data structure: abstract type linear structure with sequence of elements
+
+- Contains many nodes which are connected. 
+
+- Each node has data and the address(pointer) of the next node 
+
+- head is the address of the starting node
+
+- the last node will have the next node's address as null 
+
+
+`Arrays +-`
+
++fast access to random elements
+
++easy to use and code
+
+-fixed size, costly to change 
+
+-insert and delete are slow
+
+`LinkedList +-`
+
++dynamic size (no need declare at start)
+
++can add or remove easily from middle
+
++no size limit
+
+# Operations 
+
+determine size
+
+insert item 
+
+search 
+
+get item
+
+delete
+
+## creating the structure
+each "data" to be inserted into a linked list need to become a node 
+
+each node would have data and the address of the next node
+
+```
+class LinkedList { 
+ public: 
+   NodeType* head; 
+   LinkedList();
+   int getSize();
+};
+
+```
+## Traversal
+example of printing all elements
+```
+node *current = head;
+while (current->next != nullptr){
+	cout << current->next->info;
+}
+
+```
+
+## getting list size 
+```
+//code to calculate size as it goes
+int size =0 ;
+node *current = head;
+while (current->next !=  nullptr){
+	size++;
+	current = current->next;
+}
+//return size
+int getSize(){
+	return size;
+}
+```
+
+## Inserting new element infront
+```
+void insert(node*& head, int data){
+	node *newnode = new node; //create the new node
+	newnode->info = data; //put data into the new node 
+	newnode->next = head; //change the new node next node into head
+	head = newnode; //make new node the new head
+	size++; //increase the list size
+}
+```
+## Inserting new element infront
+```
+void insertRear(node*& head, int data) { 
+	node* newnode = new node(id);
+	if (head == nullptr) {
+		head = newnode;
+	}
+	else {
+		node *current = head; 
+		while(current->next != nullptr){
+			current = current->next;
+		}
+		current->next = newnode;
+		newnode->next = nullptr;
+	}
+}
+```
+
+## cleaning up
+```
+void deleteAll(){
+   NodeType * current = head;
+   while(head != NULL){
+	current = current->link;
+	delete head;
+	head = current;
+   }
+}
+```
 
 # Queue (rank
 A queue is a list of  homogeneous elements
