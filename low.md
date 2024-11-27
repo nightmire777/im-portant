@@ -95,3 +95,41 @@ EBCDIC: Extended Binary Coded Decimal Interchange Code(eight-bit character encod
 - control bus: has signals related to instructions and coordination to components , bidirectional  
 
 >sytstem clock
+
+
+## types of registers
+>general purpose register
+- can store data 
+- can store intermidiate data when calculation 
+- 
+
+
+>user visible registers
+- data registers: mul, cx, 
+- address registers: stack pointer, segment pointer, index pointer 
+
+>user invisible registers
+- usually have a special purpose / use by OS
+- program count register (pc), instruction register (IR), MAR, MDR, stat/plag register 
+
+
+# LMC
+>1 add
+>
+>2 sub
+>
+>3 store
+>
+>5 load
+>
+>6 branch unconditionally
+>
+>7 branch is 0
+>
+>8 branch on positive 
+>
+>0 halt
+>
+>901 input
+>
+>902 output
